@@ -35,7 +35,11 @@ function DatabaseStatus() {
     refreshInterval: 2000,
   });
 
-  let databaseText = "Carregando...";
+  let databaseText = {
+    version: "Carregando...",
+    opened_connections: "Carregando...",
+    max_connections: "Carregando...",
+  };
 
   if (!isLoading && data) {
     databaseText = data.dependencies.database;
