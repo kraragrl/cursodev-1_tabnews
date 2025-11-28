@@ -7,10 +7,11 @@ function onNoMatchHandler(_, response) {
 
 function onErrorHandler(error, _, response) {
   const publicErrorObject = new InternalServerError({
+    statusCode: error.statusCode,
     cause: error,
   });
 
-  console.error(publicErrorObject); // <--- Faltou essa linha
+  console.error(publicErrorObject);
 
   response.status(publicErrorObject.statusCode).json(publicErrorObject);
 }
